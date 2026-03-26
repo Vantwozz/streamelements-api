@@ -1,12 +1,12 @@
 export default function handler(req, res) {
-  const rand = Math.random();
-  let points;
+  const chance = Math.random();
+  let result;
 
-  if (rand < 0.7) {
-    points = Math.floor(Math.random() * 101) - 100; // -100 до 0 (70%)
+  if (chance < 0.7) {
+    result = -Math.floor(Math.random() * 101);
   } else {
-    points = Math.floor(Math.random() * 501); // 0 до 500 (30%)
+    result = Math.floor(Math.random() * 401);
   }
 
-  res.status(200).send(`Rolling... ${points} points for next game! 🎲`);
+  res.status(200).json({ value: result });
 }
